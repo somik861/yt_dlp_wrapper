@@ -1,8 +1,11 @@
 import subprocess
 import sys
 from pathlib import Path
+import sys
 
-ffmpeg = Path(__file__).parent/'external'/'ffmpeg.exe'
+BIN_NAME = {'linux': 'ffmpeg', 'windows': 'ffmpeg.exe'} [sys.platform]     
+
+ffmpeg = Path(__file__).parent/'external'/sys.platform/BIN_NAME
 dest_location = Path('.')/'yt_down'
 dest_location.mkdir(exist_ok=True, parents=True)
 
